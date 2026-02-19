@@ -1,5 +1,5 @@
-                                    # Repository Setup and Cloning Guide
-                                    #Method-1(Manual Cloning Process)
+# Repository Setup and Cloning Guide
+  ***Method-1(Manual Cloning Process)***
 
 > **Detailed step-by-step guide to set up the Repo tool and clone SDV automotive workspaces (`cluster_ws` and `infotainment_ws`) using WSL via VS Code (recommended) or Git Bash on Windows.**
 
@@ -239,7 +239,9 @@ repo sync                # SLOW (based on size and net speed)
 | **No passphrase issues** | `git config --global user.email` + `user.name` |
 
 ***
-                            # Automate the Cloning Process using Scripts
+
+#Automate the Cloning Process using Scripts
+***Method-2 -automatically clone process***
 
 **One-command automated setup for SDV Cluster & Infotainment workspaces with GitLab SSH authentication**
 
