@@ -297,7 +297,7 @@ ssh -T git@gitlab.rampgroup.com
 cd repo_scripts
 window_setup.bat
 ```
-# Note:Suppose it not working properly , please run window_setu.bat file Run as Administrator
+**Note:Suppose it not working properly , please run window_setu.bat file Run as Administrator**
 
 ### ✅ What the Script Does Automatically
 - ✅ Checks for required tools
