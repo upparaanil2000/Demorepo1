@@ -246,5 +246,124 @@ repo sync                # SLOW (based on size and net speed)
 
 **One-command automated setup for SDV Cluster & Infotainment workspaces with GitLab SSH authentication**
 
+This guide explains how to set up the SDV manifest repository using automated scripts on **Windows** and **Ubuntu**.
+
+## 📁 Script Location
+
+```
+manifest/
+└── repo_scripts/
+    ├── ubuntu_setup.sh
+    └── window_setup.bat
+```
+
+---
+
+## 🖥️ Windows Setup
+
+### Step 1: Install Prerequisites (One-Time)
+Install the following software:
+- [Git for Windows](https://git-scm.com/download/win)
+- [Python 3.x](https://www.python.org/downloads/)
+- OpenSSH (included with Git for Windows)
+
+**Restart your PC** after installation.
+
+### Step 2: Clone Manifest Repository
+Open **Git Bash** and run:
+
+```bash
+git clone ssh://git@gitlab.rampgroup.com/sdv/v2/manifest.git
+cd manifest
+```
+
+### Step 3: Generate SSH Key (First Time Only)
+```bash
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+- Press **Enter** for all prompts (uses default location)
+- Copy your public key:
+```bash
+cat ~/.ssh/id_rsa.pub
+```
+- Add it to GitLab: **Profile → Preferences → SSH Keys → Add New Key**
+- Verify connection:
+```bash
+ssh -T git@gitlab.rampgroup.com
+```
+
+### Step 4: Run Setup Script
+```bash
+cd repo_scripts
+window_setup.bat
+```
+# Note:Suppose it not working properly , please run window_setu.bat file Run as Administrator
+
+### ✅ What the Script Does Automatically
+- ✅ Checks for required tools
+- ✅ Configures repo tool
+- ✅ Initializes manifest
+- ✅ Downloads all project repositories
+- ✅ Prepares complete workspace
+
+---
+
+## 🐧 Ubuntu Setup
+
+### Step 1: Install Prerequisites
+```bash
+sudo apt update
+sudo apt install git python3 curl ssh -y
+```
+
+### Step 2: Clone Manifest Repository
+```bash
+git clone ssh://git@gitlab.rampgroup.com/sdv/v2/manifest.git
+cd manifest
+```
+
+### Step 3: Generate SSH Key (First Time Only)
+```bash
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+- Copy public key: `cat ~/.ssh/id_rsa.pub`
+- Add it to GitLab: **Profile → Preferences → SSH Keys → Add New Key**
+- Test: `ssh -T git@gitlab.rampgroup.com`
+
+### Step 4: Run Setup Script
+```bash
+cd repo_scripts
+chmod +x ubuntu_setup.sh
+./ubuntu_setup.sh
+```
+
+### ✅ What the Script Does Automatically
+- ✅ Installs repo tool (if missing)
+- ✅ Configures environment
+- ✅ Initializes manifest
+- ✅ Syncs all dependent repositories
+- ✅ Prepares complete workspace
+
+---
+
+## 🔄 Running Scripts Again
+
+If you run the setup script multiple times:
+- ✅ Checks if repo already exists
+- ✅ Syncs latest changes only
+- ✅ Avoids duplicate downloads
+- ✅ Updates workspace efficiently
+
+---
+
+## 🆘 Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| SSH connection fails | Verify SSH key added to GitLab |
+| `repo` command not found | Script installs it automatically |
+| Permission denied | Run `chmod +x ubuntu_setup.sh` on Ubuntu |
+| Network timeout | Check internet connection and retry |
+
 
 
