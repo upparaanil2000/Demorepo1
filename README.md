@@ -241,7 +241,7 @@ repo sync                # SLOW (based on size and net speed)
 ***
 
 
-## ***Method-2 -automatic  cloning process***
+# Method-2 -automatic  cloning process
 
 
 **One-command automated setup for SDV Cluster & Infotainment workspaces with GitLab SSH authentication**
